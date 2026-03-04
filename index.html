@@ -349,10 +349,6 @@ h1 {
             <span class="dato-label">IDIOMA / NACIÓN</span>
             <div class="dato-valor" id="rIdioma"></div>
         </div>
-        <div class="card-dato">
-            <span class="dato-label">CÓDIGO CERTIFICADO</span>
-            <div class="dato-valor" id="rCodigoDisplay"></div>
-        </div>
         <div class="card-dato card-full">
             <div class="dato-valor" id="rCurso"></div>
         </div>
@@ -446,9 +442,6 @@ function verificarCodigo(){
         document.getElementById("rCurso").innerText = datos.curso;
         document.getElementById("rFecha").innerText = datos.fecha;
         document.getElementById("rEstado").innerText = datos.estado;
-	let urlBase = window.location.href.split('?')[0]; 
-        let urlConDatos = urlBase + "?id=" + encodeURIComponent(input);
-        document.getElementById("codigoQR").src = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=" + encodeURIComponent(urlConDatos);
 
         mensajeError.style.display = "none";
         resultado.style.display = "block";
@@ -484,4 +477,5 @@ window.addEventListener('load', function() {
 
 </body>
 </html>
+
 
