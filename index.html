@@ -6,7 +6,6 @@
 <title>Verificador Oficial</title>
 
 <style>
-
 .watermark-bg {
     position: fixed;
     top: 0;
@@ -15,9 +14,7 @@
     height: 100%;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.1; /* Subí un poquito el tono para que se note mejor el cambio de letra */
-    
-    /* AQUÍ CAMBIAMOS EL TIPO DE LETRA A TIMES NEW ROMAN */
+    opacity: 0.1;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='150'%3E%3Ctext x='50%25' y='50%25' font-size='23' font-weight='bold' font-family='Times New Roman, serif' fill='white' text-anchor='middle' transform='rotate(-35, 125, 75)'%3EIPELC OFICIAL%3C/text%3E%3C/svg%3E");
     background-repeat: repeat;
 }
@@ -30,278 +27,50 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-
-    background:
-    radial-gradient(circle at 98% 2%,
-        rgba(170, 0, 90, 0.85) 0%,
-        rgba(120, 0, 80, 0.55) 20%,
-        rgba(0, 18, 45, 1) 45%
-    ),
-    linear-gradient(135deg, #000d26 0%, #001a3d 100%);
+    background: radial-gradient(circle at 98% 2%, rgba(170, 0, 90, 0.85) 0%, rgba(120, 0, 80, 0.55) 20%, rgba(0, 18, 45, 1) 45%), linear-gradient(135deg, #000d26 0%, #001a3d 100%);
 }
-
-.contenedor {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    width: 100%;
-    max-width: 900px;
-}
-
-.logos {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin-bottom: 25px;
-}
-
-.logos img {
-    height: 180px;
-    object-fit: contain;
-}
-
-h1 {
-    font-size: 56px;
-    margin: 10px 0;
-    font-weight: 700;
-}
-
-.subtitulo {
-    font-size: 18px;
-    opacity: 0.85;
-    margin-bottom: 35px;
-}
-
-.contador-box {
-    display: inline-block;
-    padding: 25px 60px;
-    border-radius: 50px;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-    margin-bottom: 50px;
-}
-
-.contador-numero {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.contador-texto {
-    font-size: 14px;
-    opacity: 0.7;
-    letter-spacing: 2px;
-}
-
-.verificador-container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:30px;
-}
-
-.verificador{
-    display:flex;
-    width:750px;
-    background:rgba(0,20,50,0.9);
-    border-radius:20px;
-    padding:10px;
-    box-shadow:0 0 20px rgba(0,150,255,0.3);
-    border:1px solid rgba(0,150,255,0.4);
-}
-
-.verificador input{
-    flex:1;
-    background:transparent;
-    border:none;
-    outline:none;
-    padding:18px;
-    color:white;
-    font-size:16px;
-}
-
-.verificador input::placeholder{
-    color:rgba(255,255,255,0.6);
-}
-
-.verificador button{
-    background:#1e90ff;
-    border:none;
-    padding:15px 35px;
-    border-radius:15px;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.verificador button:hover{
-    background:#0077ff;
-}
-
-.mensaje-error{
-    width:750px;
-    background:rgba(60,0,20,0.6);
-    border:1px solid rgba(255,0,60,0.5);
-    border-radius:20px;
-    padding:40px;
-    text-align:center;
-    color:white;
-    backdrop-filter: blur(10px);
-}
-
-.resultado-valido {
-    width: 800px;
-    position: relative;
-    /* Fondo casi inexistente para que se vea lo de atrás */
-    background: rgba(255, 255, 255, 0.03) !important; 
-    border-radius: 20px;
-    padding: 30px;
-    /* El desenfoque debe ser fuerte */
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 30px rgba(0, 255, 212, 0.1), 0 10px 40px rgba(0, 0, 0, 0.4);
-    text-align: left;
-    overflow: hidden;
-}
-/* Estilo general para el contenedor de resultado (Segunda Imagen) */
-.resultado-valido {
-    width: 800px;
-    background: rgba(30, 35, 50, 0.95);
-    border-radius: 20px;
-    padding: 30px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: left; /* Alineación a la izquierda */
-}
-
-.header-resultado {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 25px;
-}
-
-.badge-curso {
-    background: rgba(0, 150, 255, 0.2);
-    color: #4dabf7;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.nombre-usuario {
-    font-size: 32px;
-    font-weight: 800;
-    margin: 10px 0;
-    color: white;
-}
-
-.ci-usuario {
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-.badge-estado {
-    background: #40c05722;
-    border: 1px solid #40c057;
-    color: #40c057;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.estado-titulo { font-size: 10px; display: block; }
+.contenedor { position: relative; z-index: 2; text-align: center; width: 100%; max-width: 900px; }
+.logos { display: flex; justify-content: center; gap: 80px; margin-bottom: 25px; }
+.logos img { height: 180px; object-fit: contain; }
+h1 { font-size: 56px; margin: 10px 0; font-weight: 700; }
+.subtitulo { font-size: 18px; opacity: 0.85; margin-bottom: 35px; }
+.contador-box { display: inline-block; padding: 25px 60px; border-radius: 50px; background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); margin-bottom: 50px; }
+.contador-numero { font-size: 36px; font-weight: bold; }
+.contador-texto { font-size: 14px; opacity: 0.7; letter-spacing: 2px; }
+.verificador-container{ display:flex; flex-direction:column; align-items:center; gap:30px; }
+.verificador{ display:flex; width:750px; background:rgba(0,20,50,0.9); border-radius:20px; padding:10px; box-shadow:0 0 20px rgba(0,150,255,0.3); border:1px solid rgba(0,150,255,0.4); }
+.verificador input{ flex:1; background:transparent; border:none; outline:none; padding:18px; color:white; font-size:16px; }
+.verificador button{ background:#1e90ff; border:none; padding:15px 35px; border-radius:15px; color:white; font-weight:bold; cursor:pointer; transition:0.3s; }
+.mensaje-error{ width:750px; background:rgba(60,0,20,0.6); border:1px solid rgba(255,0,60,0.5); border-radius:20px; padding:40px; text-align:center; color:white; backdrop-filter: blur(10px); }
+.resultado-valido { width: 800px; position: relative; background: rgba(30, 35, 50, 0.95); border-radius: 20px; padding: 30px; backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; overflow: hidden; }
+.header-resultado { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px; }
+.badge-curso { background: rgba(0, 150, 255, 0.2); color: #4dabf7; padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+.nombre-usuario { font-size: 32px; font-weight: 800; margin: 10px 0; color: white; }
+.ci-usuario { font-size: 14px; opacity: 0.7; }
+.badge-estado { background: #40c05722; border: 1px solid #40c057; color: #40c057; padding: 10px 20px; border-radius: 8px; text-align: center; }
 .estado-valor { font-weight: bold; font-size: 16px; }
-
-/* Grid de Tarjetas */
-.grid-datos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.card-dato {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-.dato-label {
-    display: block;
-    font-size: 11px;
-    color: #4dabf7;
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
-.dato-valor {
-    font-size: 18px;
-    font-weight: 600;
-}
-
+.grid-datos { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+.card-dato { background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px; }
+.dato-label { display: block; font-size: 11px; color: #4dabf7; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
+.dato-valor { font-size: 18px; font-weight: 600; }
 .card-full { grid-column: 1 / span 2; }
-
-/* Caja de advertencia inferior */
-.importante-box {
-    background: rgba(0, 255, 150, 0.05);
-    border: 1px solid rgba(0, 255, 150, 0.2);
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    font-size: 13px;
-}
-
+.importante-box { background: rgba(0, 255, 150, 0.05); border: 1px solid rgba(0, 255, 150, 0.2); border-radius: 10px; padding: 15px; text-align: center; font-size: 13px; }
 .importante-box strong { color: #00ff99; }
-
-
-.icono-x{
-    font-size:40px;
-    color:#ff5c5c;
-    margin-bottom:15px;
-}
-
-.bubble {
-    position: absolute;
-    bottom: -60px;
-    border-radius: 50%;
-    background: radial-gradient(circle,
-        rgba(255,255,255,0.9) 0%,
-        rgba(255,255,255,0.4) 40%,
-        rgba(255,255,255,0.1) 70%
-    );
-    animation: subir linear infinite;
-    z-index: 1;
-}
-
-@keyframes subir {
-    from { transform: translateY(0); opacity: 0.8; }
-    to { transform: translateY(-110vh); opacity: 0; }
-}
+.bubble { position: absolute; bottom: -60px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 40%, rgba(255,255,255,0.1) 70%); animation: subir linear infinite; z-index: 1; }
+@keyframes subir { from { transform: translateY(0); opacity: 0.8; } to { transform: translateY(-110vh); opacity: 0; } }
 </style>
-
 </head>
-
 <body>
 
 <div class="watermark-bg"></div>
-
 <div class="contenedor">
-
     <div class="logos">
         <img src="logo1.png">
         <img src="logo2.png">
     </div>
 
     <h1>Verificador Oficial</h1>
-
-    <div class="subtitulo">
-        Instituto Plurinacional de Estudio de Lenguas y Culturas
-    </div>
+    <div class="subtitulo">Instituto Plurinacional de Estudio de Lenguas y Culturas</div>
 
     <div class="contador-box">
         <div class="contador-numero" id="contador">0</div>
@@ -309,173 +78,120 @@ h1 {
     </div>
 
     <div class="verificador-container">
-
         <div class="verificador">
-            <input type="text" id="codigoInput" placeholder="Ingrese el código del certificado..." onkeydown="if(event.key==='Enter'){verificarCodigo()}">
+            <input type="text" id="codigoInput" placeholder="Ingrese el código..." onkeydown="if(event.key==='Enter'){verificarCodigo()}">
             <button onclick="verificarCodigo()">Verificar</button>
         </div>
 
         <div id="mensajeError" class="mensaje-error" style="display:none;">
-            <div class="icono-x">✕</div>
             <h3>No se encontró el certificado</h3>
-            <p>No se encontraron datos para este código.</p>
         </div>
 
-      <div id="resultadoValido" class="resultado-valido" style="display:none;">
-    
-    <img src="logo-ipelc.png" alt="Logo IPELC" style="
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        height: 280px;
-        opacity: 0.5; /* Lo hace un poco transparente */
-        pointer-events: none; /* No interfiere con los clics */
-    ">
-    
-    <div class="header-resultado">
-        <div>
-            <span class="badge-curso">CURSO DE IDIOMA ORIGINARIO</span>
-            <div class="nombre-usuario" id="rNombre"></div>
-            <div class="ci-usuario">CI: <span id="rCI"></span></div>
-        </div>
-        <div class="badge-estado">
-            <span class="estado-titulo">ESTADO</span>
-            <span id="rEstado" class="estado-valor"></span>
+        <div id="resultadoValido" class="resultado-valido" style="display:none;">
+            <img src="logo-ipelc.png" alt="Logo IPELC" style="position: absolute; bottom: 20px; right: 20px; height: 280px; opacity: 0.5; pointer-events: none;">
+            
+            <div class="header-resultado">
+                <div>
+                    <span class="badge-curso">CURSO DE IDIOMA ORIGINARIO</span>
+                    <div class="nombre-usuario" id="rNombre"></div>
+                    <div class="ci-usuario">CI: <span id="rCI"></span></div>
+                </div>
+                <div class="badge-estado">
+                    <span style="font-size: 10px; display: block;">ESTADO</span>
+                    <span id="rEstado" class="estado-valor"></span>
+                </div>
+            </div>
+
+            <div class="grid-datos">
+                <div class="card-dato">
+                    <span class="dato-label">IDIOMA / NACIÓN</span>
+                    <div class="dato-valor" id="rIdioma"></div>
+                </div>
+                <div class="card-dato">
+                    <span class="dato-label">CÓDIGO</span>
+                    <div class="dato-valor" id="rCodigoDisplay"></div>
+                </div>
+                <div class="card-dato card-full">
+                    <div class="dato-valor" id="rCurso"></div>
+                </div>
+                <div class="card-dato">
+                    <span class="dato-label">FECHA DE EMISIÓN</span>
+                    <div class="dato-valor" id="rFecha"></div>
+                </div>
+            </div>
+
+            <div class="importante-box">
+                <strong>Importante:</strong><br>
+                Si la información coincide con el documento impreso, el certificado es válido.
+            </div>
         </div>
     </div>
-
-    <div class="grid-datos">
-        <div class="card-dato">
-            <span class="dato-label">IDIOMA / NACIÓN</span>
-            <div class="dato-valor" id="rIdioma"></div>
-        </div>
-        <div class="card-dato card-full">
-            <div class="dato-valor" id="rCurso"></div>
-        </div>
-        <div class="card-dato">
-            <span class="dato-label">FECHA DE EMISIÓN</span>
-            <div class="dato-valor" id="rFecha"></div>
-        </div>
-    </div>
-    
-<div class="card-dato" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; grid-column: span 2;">
-    <span class="dato-label">VALIDACIÓN QR</span>
-    <img id="codigoQR" src="" alt="QR" style="width: 150px; height: 150px; border: 8px solid white; border-radius: 10px; margin-top: 10px;">
-    <p style="font-size: 10px; margin-top: 5px; opacity: 0.7;">Escanee para validar en línea</p>
-</div>
-
-    <div class="importante-box">
-        <strong>Importante:</strong><br>
-        Si la información expuesta coincide con la información impresa del documento que desea validar, el certificado puede considerarse válido.
-    </div>
-
-</div>
-    
-     </div>
-
 </div>
 
 <script>
-
-// CONTADOR
+// Lógica del contador y burbujas se mantiene igual
 let valorFinal = 229585;
-let contador = document.getElementById("contador");
 let inicio = 0;
-
-let intervalo = setInterval(() => {
-    inicio += Math.floor(valorFinal / 100);
-
-    if (inicio >= valorFinal) {
-        inicio = valorFinal;
-        clearInterval(intervalo);
+setInterval(() => {
+    if (inicio < valorFinal) {
+        inicio += Math.floor(valorFinal / 100);
+        document.getElementById("contador").innerText = (inicio > valorFinal ? valorFinal : inicio).toLocaleString("es-ES");
     }
-
-    contador.innerText = inicio.toLocaleString("es-ES");
 }, 10);
 
-
-// BURBUJAS
 function crearBurbuja() {
     const burbuja = document.createElement("div");
     burbuja.classList.add("bubble");
-
     const size = Math.random() * 25 + 10;
-    burbuja.style.width = size + "px";
-    burbuja.style.height = size + "px";
+    burbuja.style.width = size + "px"; burbuja.style.height = size + "px";
     burbuja.style.left = Math.random() * 100 + "vw";
     burbuja.style.animationDuration = (Math.random() * 6 + 4) + "s";
-
     document.body.appendChild(burbuja);
-
     setTimeout(() => burbuja.remove(), 10000);
 }
-
 setInterval(crearBurbuja, 250);
-
 
 // BASE DE DATOS
 const baseDatos = {
-    "123": {
-        nombre: "CESAR EMMANUEL RIOS PEÑA",
-        ci: "9753524",
-        idioma: "GUARANI - \"JUAN AÑEMOTI\"", // La barra \ protege a la comilla
-        curso: "CURSO BASICO DE IDIOMA ORIGINARIO",
-        fecha: "26-06-2026",
-        estado: "APROBADO"
-    }
+    "123": {
+        nombre: "CESAR EMMANUEL RIOS PEÑA",
+        ci: "9753524",
+        idioma: "GUARANI - \"JUAN AÑEMOTI\"",
+        curso: "CURSO BASICO DE IDIOMA ORIGINARIO",
+        fecha: "26-06-2026",
+        estado: "APROBADO"
+    }
 };
 
 function verificarCodigo(){
-
     let input = document.getElementById("codigoInput").value.trim();
     let mensajeError = document.getElementById("mensajeError");
     let resultado = document.getElementById("resultadoValido");
 
     if(baseDatos[input]){
-
         let datos = baseDatos[input];
-
         document.getElementById("rNombre").innerText = datos.nombre;
         document.getElementById("rCI").innerText = datos.ci;
-	document.getElementById("rIdioma").innerText = datos.idioma;
-	document.getElementById("rCodigoDisplay").innerText = input;
+        document.getElementById("rIdioma").innerText = datos.idioma;
+        document.getElementById("rCodigoDisplay").innerText = input; // <--- Esto era lo que faltaba
         document.getElementById("rCurso").innerText = datos.curso;
         document.getElementById("rFecha").innerText = datos.fecha;
         document.getElementById("rEstado").innerText = datos.estado;
-
         mensajeError.style.display = "none";
         resultado.style.display = "block";
-
     } else {
-
         resultado.style.display = "none";
         mensajeError.style.display = "block";
     }
 }
 
-// Carga automática al abrir la página
-window.addEventListener('load', function() {
+// CARGA AUTOMÁTICA
+window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
-    let idParaMostrar = urlParams.get('id');
-
-    // SI NO HAY ID EN LA URL, DEFINIMOS UNO POR DEFECTO (ej: "123")
-    if (!idParaMostrar) {
-        idParaMostrar = "123"; 
-    }
-
-    // Ponemos el código en el input y ejecutamos la función
-    document.getElementById("codigoInput").value = idParaMostrar;
+    let id = urlParams.get('id') || "123"; // Usa "123" por defecto
+    document.getElementById("codigoInput").value = id;
     verificarCodigo();
-    
-    // Desplazar suavemente hasta el resultado para que sea lo primero que se vea
-    setTimeout(() => {
-        document.getElementById("resultadoValido").scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-});
-
+};
 </script>
-
 </body>
 </html>
-
-
