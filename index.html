@@ -460,23 +460,28 @@ function verificarCodigo(){
     }
 }
 
-// Carga automática si viene desde un QR
+// Carga automática al abrir la página
 window.addEventListener('load', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const idDesdeQR = urlParams.get('id');
+    let idParaMostrar = urlParams.get('id');
 
-    if (idDesdeQR) {
-        document.getElementById("codigoInput").value = idDesdeQR;
-        verificarCodigo();
-        
-        // Desplazar suavemente hasta el resultado
-        setTimeout(() => {
-            document.getElementById("resultadoValido").scrollIntoView({ behavior: 'smooth' });
-        }, 800);
+    // SI NO HAY ID EN LA URL, DEFINIMOS UNO POR DEFECTO (ej: "123")
+    if (!idParaMostrar) {
+        idParaMostrar = "123"; 
     }
+
+    // Ponemos el código en el input y ejecutamos la función
+    document.getElementById("codigoInput").value = idParaMostrar;
+    verificarCodigo();
+    
+    // Desplazar suavemente hasta el resultado para que sea lo primero que se vea
+    setTimeout(() => {
+        document.getElementById("resultadoValido").scrollIntoView({ behavior: 'smooth' });
+    }, 100);
 });
 
 </script>
 
 </body>
 </html>
+
